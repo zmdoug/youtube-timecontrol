@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { API_CONFIG } from '../app.settings';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class TimeService {
   constructor(public http: HttpClient) { }
 
   getUserTime(userId) {
-    let url = `http://localhost:3000/time/${userId}`;
+    let url = API_CONFIG.url + `time/${userId}`;
     let promise = new Promise((resolve, reject) => {
       this.http.get(url)
         .toPromise().then(
@@ -21,7 +22,7 @@ export class TimeService {
   }
 
   setUserTime(userId, timeData) {
-    let url = `http://localhost:3000/time/${userId}`;
+    let url = API_CONFIG.url + `time/${userId}`;
     let promise = new Promise((resolve, reject) => {
       this.http.put(url, timeData)
         .toPromise().then(

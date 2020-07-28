@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { API_CONFIG } from '../app.settings';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class YoutubeService {
   constructor(public http: HttpClient) { }
 
   getVideos(searchTerm) {
-    let url = 'http://localhost:3000/videos';
+    let url = API_CONFIG.url + 'videos';
     let promise = new Promise((resolve, reject) => {
       this.http.post(url, { searchTerm })
         .toPromise().then(

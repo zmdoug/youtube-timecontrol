@@ -5,9 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "nodemon src/server",
-    "start": "nodemon src/server",
-    "eslinty": "yarn eslint --fix src --ext .js",
-    "queue": "nodemon src/queue.js"
+    "start": "nodemon src/server"
   },
   "dependencies": {
     "@sentry/node": "5.6.2",

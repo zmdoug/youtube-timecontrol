@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { StorageService } from './storage.service';
+import { API_CONFIG } from '../app.settings';
 
 export interface UserI {
   id: string,
@@ -17,7 +18,7 @@ export class UserService {
   constructor(public http: HttpClient, private storage: StorageService) { }
 
   register(registrationData) {
-    let url = 'http://localhost:3000/users';
+    let url = API_CONFIG.url + 'users';
     let promise = new Promise((resolve, reject) => {
       this.http.post(url, registrationData)
         .toPromise().then(
