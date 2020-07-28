@@ -1,0 +1,60 @@
+<nz-tabset class="tabContainer" nzTabPosition="left" [(nzSelectedIndex)]="selectedIndex">
+  <nz-tab *ngFor="let tab of tabs" [nzTitle]="tab">
+
+    <div *ngIf="tab === 'Login'">
+      <form nz-form [formGroup]="loginForm" class="login-form" (ngSubmit)="submitLoginForm()">
+        <nz-form-item>
+          <nz-form-control nzErrorTip="Por favor digite seu email">
+            <nz-input-group nzPrefixIcon="user">
+              <input type="text" nz-input formControlName="email" placeholder="Email" />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control nzErrorTip="Por favor digite sua senha">
+            <nz-input-group nzPrefixIcon="lock">
+              <input type="password" nz-input formControlName="password" placeholder="Senha" />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">Log in</button>
+        Or <a (click)="selectedIndex = 1"> register now! </a>
+      </form>
+    </div>
+    <div *ngIf="tab === 'Register'">
+      <form nz-form [formGroup]="registrationForm" class="login-form" (ngSubmit)="submitRegistrationForm()">
+        <nz-form-item>
+          <nz-form-control nzErrorTip="Por favor digite seu nome">
+            <nz-input-group nzPrefixIcon="user">
+              <input type="text" nz-input formControlName="name" placeholder="Nome" />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control nzErrorTip="Por favor digite seu email">
+            <nz-input-group nzPrefixIcon="user">
+              <input type="text" nz-input formControlName="email" placeholder="Email" />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control nzErrorTip="Por favor digite sua senha">
+            <nz-input-group nzPrefixIcon="lock">
+              <input type="password" nz-input formControlName="password" placeholder="Senha" />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control nzErrorTip="Por favor confirme sua senha">
+            <nz-input-group nzPrefixIcon="lock">
+              <input type="password" nz-input formControlName="confirmPassword" placeholder="Repetir a Senha" />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">Registrar</button>
+        Or <a (click)="selectedIndex = 0"> login </a>
+      </form>
+    </div>
+
+  </nz-tab>
+</nz-tabset>

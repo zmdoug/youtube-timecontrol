@@ -1,0 +1,11 @@
+<nz-card [nzLoading]="loading" nzHoverable [nzCover]="coverTemplate" class="videoCard"
+  [ngClass]="{'blockedVideo': !currentVideo }">
+  <h1>{{video.duration}} Minutos</h1>
+  <nz-card-meta [nzTitle]="video.snippet.title" [nzDescription]="(video.snippet.description | slice:0:50) + '...'">
+  </nz-card-meta>
+  <ng-template #coverTemplate>
+    <youtube-player #player [videoId]="video.id" [width]="340" (ready)="onReady($event)"
+      (stateChange)="onStateChange($event)" [hidden]="visible"></youtube-player>
+    <img alt="example" [src]="video.snippet.thumbnails.high.url" (click)="unblockVideo()" *ngIf="visible" />
+  </ng-template>
+</nz-card>

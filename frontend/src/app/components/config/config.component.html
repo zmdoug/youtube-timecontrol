@@ -1,0 +1,29 @@
+<form nz-form [formGroup]="form">
+  <div class="week-time-group">
+    <h2>Defina seu tempo em minutos</h2>
+    <p><small>Apenas números, máximo 3 dígitos</small></p>
+    <nz-form-control nzErrorTip="Apenas números, máximo 3 dígitos">
+      <input type="text" maxlength="3" nz-input formControlName="segunda" placeholder="Segunda-feira">
+    </nz-form-control>
+    <nz-form-control nzErrorTip="Apenas números, máximo 3 dígitos">
+      <input type="text" maxlength="3" nz-input formControlName="terca" placeholder="Terça-feira">
+    </nz-form-control>
+    <nz-form-control nzErrorTip="Apenas números, máximo 3 dígitos">
+      <input type="text" maxlength="3" nz-input formControlName="quarta" placeholder="Quarta-feira">
+    </nz-form-control>
+    <nz-form-control nzErrorTip="Apenas números, máximo 3 dígitos">
+      <input type="text" maxlength="3" nz-input formControlName="quinta" placeholder="Quinta-feira">
+    </nz-form-control>
+    <nz-form-control nzErrorTip="Apenas números, máximo 3 dígitos">
+      <input type="text" maxlength="3" nz-input formControlName="sexta" placeholder="Sexta-feira">
+    </nz-form-control>
+    <nz-form-control nzErrorTip="Apenas números, máximo 3 dígitos">
+      <input type="text" maxlength="3" nz-input formControlName="sabado" placeholder="Sabado">
+    </nz-form-control>
+    <nz-form-control nzErrorTip="Apenas números, máximo 3 dígitos">
+      <input type="text" maxlength="3" nz-input formControlName="domingo" placeholder="Domingo">
+    </nz-form-control>
+    <button (click)="setUserTimeConfig()" nz-button nzType="primary" [nzSize]="size" nzShape="round">Setar <i nz-icon
+        nzType="download"></i></button>
+  </div>
+</form>

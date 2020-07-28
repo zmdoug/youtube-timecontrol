@@ -1,0 +1,46 @@
+<nz-breadcrumb>
+  <nz-breadcrumb-item>Home</nz-breadcrumb-item>
+</nz-breadcrumb>
+<div class="inner-content">
+  <div class="search-tool">
+    <div class="search-input">
+      <nz-input-group [nzSuffix]="suffixIconSearch">
+        <input [disabled]="!dailyTimer || dailyTimer === 0" type="text" [(ngModel)]="searchTerm" nz-input nzSize="large"
+          (keyup.enter)="search()" placeholder="Encontre o seu vídeo" />
+      </nz-input-group>
+      <ng-template #suffixIconSearch>
+        <i nz-icon nzType="search"></i>
+      </ng-template>
+    </div>
+    <div class="search-buttons">
+      <button nz-button nzType="primary" (click)="openTimeConfig()">Defina seu tempo</button>
+    </div>
+  </div>
+
+
+
+  <div style="background: #ECECEC; padding: 30px;">
+    <nz-row [nzGutter]="16">
+      <nz-col [nzSpan]="12">
+        <nz-card>
+          <nz-card-meta nzTitle="Tempo disponível hoje"></nz-card-meta>
+          <h2 nz-typography>{{dailyTimer}} min</h2>
+        </nz-card>
+      </nz-col>
+      <nz-col [nzSpan]="12">
+        <nz-card>
+          <nz-card-meta nzTitle="Resta na semana"></nz-card-meta>
+          <h2 nz-typography>{{weekTimer}} min</h2>
+        </nz-card>
+      </nz-col>
+    </nz-row>
+  </div>
+  <nz-divider nzOrientation="left" [nzText]="'Resultado: ' + totalSearchLenght + ' minutos '"></nz-divider>
+  <div nz-row>
+    <div *ngFor="let video of videos; let i = index;" nz-col class="gutter-row videoFrame" [nzSpan]="6">
+      <player [currentVideo]="i === currentVideo" [dailyTimer]="dailyTimer" [video]="video"
+        (videoAction)="videoAction($event)" (nextVideo)="nextVideo($event)">
+      </player>
+    </div>
+  </div>
+</div>
